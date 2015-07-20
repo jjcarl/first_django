@@ -1,0 +1,19 @@
+  {% extends "base.html" %}
+
+  {% block body %}
+        
+    <div class="container-fluid">
+        {% for state, cities in states.items %}
+            
+            <h3>{{state}}</h3>
+            </br>
+
+            <ul>
+            {% for city in cities.values %}
+                <li>{{ city.name }}</li>
+            {% endfor %}
+            </ul>
+
+        {% endfor %}
+    </div>
+{% endblock body %}

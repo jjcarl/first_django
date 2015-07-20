@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block body %}
+    
+
+<form method="POST" action="/city_search/">
+    {% csrf_token %}
+    {{form.as_table}}
+
+    <input type="submit" value="Search/">
+
+</form>
+
+</br>
+</br>
+
+{% for city in city_list %}
+
+    <p><a href="/cities/{{city.pk}}"><b>{{city}}</b></a>, Zip Code: {{city.zip_code}}</p> 
+    </br>
+    
+{% endfor %}
+
+{% endblock body %}
